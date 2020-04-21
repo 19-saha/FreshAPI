@@ -7,6 +7,7 @@
 
 ## Table of Contents
 * [Food Spoilage-API ](#Food-Spoilage-API)
+* [Installation](#Installation)
 
 
 
