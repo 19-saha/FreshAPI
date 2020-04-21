@@ -17,3 +17,4 @@ The purpose of the application is to provide a platform to predict the total bac
 
 # Installation
 Dependencies
+  * [Docker](https://www.docker.com/why-docker)
