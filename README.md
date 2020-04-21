@@ -16,4 +16,4 @@
 The purpose of the application is to provide a platform to predict the total bacterial counts present on a given meat sample through the implementation of REST API. Food Spoilage-API is build upon the technology of RESTful web based API consisting of an **Endpoint URL** and **Body Data** which can be transmitted via **HTTP request methods** by sending a single JSON-encoded data string. Machine Learning regression models are developed onto the platform and validated against new data coming to the system by sending the prediction results through the REST backend.
 
 # Installation
-* Dependencies
+Dependencies
