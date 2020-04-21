@@ -6,7 +6,7 @@
 **Approach** : The approach includes the employment of multiple machine learning algorithms to achieve the optimum prediction accuracies. In particular, five algorithms have been implemented: Linear Regression, K-Nearest Neighbor, Random Forest, Support Vector Machines with Polynomial Kernel and Radial Basis Function Kernel. Analyses and modelling were conducted via R language and environment for statistical computing and graphics, including the API (Plumber) which acts as a “pipeline” facilitating data requests and returning a response as a predicted value of the bacterial count present in a given sample. 
 
 ## Table of Contents
-* [Food Spoilage-API ](#Food Spoilage-API)
+* [Food Spoilage-API ](#Food-Spoilage-API)
 
 
 
