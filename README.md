@@ -30,6 +30,7 @@ The purpose of the application is to provide a platform to predict the total bac
 ```
 
 **Step 1 — Installing Docker**
+
 The Docker installation package available in the official Ubuntu 16.04 repository may not be the latest version. To get this latest version, install Docker from the official Docker repository. This section shows you how to do just that.
 
 First, in order to ensure the downloads are valid, add the GPG key for the official Docker repository to your system:
