@@ -20,4 +20,11 @@ Dependencies
  * UNIX Operating Systems  
  * [Docker](https://www.docker.com/why-docker)
  * R (tested on version 3.6.3)
+ * The following R libraries:
+ ```
  
+ ```
+ 
+Install Fresh-API from source  
+```
+```
