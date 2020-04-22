@@ -31,9 +31,56 @@ The purpose of the application is to provide a platform to predict the total bac
 
 **Step 1 — Installing Docker**
 
-The Docker installation package available in the official Ubuntu 16.04 repository may not be the latest version. To get this latest version, install Docker from the official Docker repository. This section shows you how to do just that.
+To download the latest version, install Docker from the official Docker repository. This section guides you how to do that.
 
 First, in order to ensure the downloads are valid, add the GPG key for the official Docker repository to your system:
 ```
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
+Add the Docker repository to APT sources:
+```
+$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+```
+Update the package database with the Docker packages from the newly added repository:
+```
+$ sudo apt-get update
+```
+To ensures that you are running the installation from the official Docker repository, run the command:
+```
+$ apt-cache policy docker-ce
+```
+This should give an output similar to the following:
+```
+docker-ce:
+  Installed: 5:19.03.8~3-0~ubuntu-xenial
+  Candidate: 5:19.03.8~3-0~ubuntu-xenial
+  Version table:
+ *** 5:19.03.8~3-0~ubuntu-xenial 500
+        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+        100 /var/lib/dpkg/status
+     5:19.03.7~3-0~ubuntu-xenial 500
+        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+ ```
+From the output, you will notice that the docker-ce is not yet installed. However, the output will show the target operating system and the version number of the Docker. Please note that version numbers may differ depending on the time of installation.
+
+Use the following command to install Docker:
+```
+sudo apt install docker-ce
+```
+This will install Docker, start the daemon and enable it to automatically start on boot. To confirm that the Docker is active and working, run:
+```
+sudo systemctl status docker
+```
+The command will provide the following output:
+```
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+   Active: active (running) since Mon 2020-03-23 12:34:27 GMT; 4 weeks 1 days ago
+     Docs: https://docs.docker.com
+ Main PID: 11575 (dockerd)
+    Tasks: 31
+   Memory: 1.9G
+      CPU: 33min 41.448s
+   CGroup: /system.slice/docker.service
+           └─11575 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+```           
