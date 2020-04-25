@@ -100,7 +100,7 @@ $ docker build -t freshapi .
 NOTE: `-t` or `--tag` is a `docker build` option used for label a docker image in the `name:tag` format. In this case, name will be `freshapi`. The `.` operator specifies the current directory containing the 'Dockerfile'. Optionally, the version of an image can be tagged in which the user would like to run the container. For example, `docker build -t freshapi:2.0 .` 
 
 ## **Step 3 — Running the Docker container**
-The `docker run` command creates a container from a given image and starts the container using a given command or entrypoint. To run the resulting docker image, the commmand is as follows:
+The `docker run` command creates a container from a given image and starts the container using a given command or entrypoint. To run the resulting docker image, the command is as follows:
 ```
 $ docker run --name <container name of choice> -d freshapi
 ```
