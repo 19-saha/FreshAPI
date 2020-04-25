@@ -97,5 +97,5 @@ The `docker build` command builds Docker images from a Dockerfile and a “conte
 ```
 $ docker build -t freshapi .
 ```
-NOTE: `-t` or `--tag` is a `docker build` option used for label a docker image in the `name:tag` format. In this case, name will be `freshapi`. Optionally, the version of an image can be tagged in which the user would like to run the container. For example, `docker build -t freshapi:2.0 .`. The `.` operator specifies the current directory containing the 'Dockerfile'. 
+NOTE: `-t` or `--tag` is a `docker build` option used for label a docker image in the `name:tag` format. In this case, name will be `freshapi`. The `.` operator specifies the current directory containing the 'Dockerfile'. Optionally, the version of an image can be tagged in which the user would like to run the container. For example, `docker build -t freshapi:2.0 .` 
 
