@@ -84,3 +84,18 @@ The command will provide the following output:
    CGroup: /system.slice/docker.service
            └─11575 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 ```           
+## **Step 2 — Building the Docker Image**
+`docker` consists of chain of options and commands followed by arguments. The syntax takes this form:
+```
+$ docker [option] [command] [arguments]
+```
+To view all available subcommands, type:
+```
+$ docker
+```
+The `docker build` command builds Docker images from a Dockerfile and a “context”. A build’s context is the set of files located in the specified `PATH`:
+```
+$ docker build -t fresh:api .
+```
+NOTE: `-t` or `--tag` is a `docker build` option used for tagging a docker image in the `name:tag` format. In this case, name will be `fresh` and the tag will be `api`. The `.` operator specifies the current directory containing the 'Dockerfile'. 
+
