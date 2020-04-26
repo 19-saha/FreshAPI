@@ -1,7 +1,7 @@
 # Development of a data science machine learning platform for food quality
 **Background** : Approximately 88 million tonnes of food are wasted annually across the European Union due to spoilage, incurring serious financial and environmental implications. The safety of poultry-containing food products can be compromised when the meat is prepared and packaged. The presence of pseudomonads in aerobic conditions can produce unpleasant slime and off-odours compromising the quality of the meat. European Commission guidelines dictate that the quality of fresh meat be determined by total viable counts (TVC) of bacteria or counts of Enterobacteriaceae. Obtaining this type of data for meat samples is time-consuming and labor intensive. Multispectral imaging (MSI) and Fourier Transform Infrared (FTIR) spectroscopy technologies are being developed to provide real-time, non-invasive, on-line screening for microbiological safety and spoilage assessment of meat samples. 
 
-**Aims and objectives** : To create a scalable platform based on Representational State Transfer (REST) and application of APIs (Application Programming Interface) for the rapid quality assessment of chicken-thigh and -burger samples. This will be achieved through the implementation of machine learning regression algorithms based on MSI and FTIR data. 
+**Aims and objectives** : To create a scalable platform based on Representational State Transfer (REST) and application of APIs (Application Programming Interface) for the rapid quality assessment of chicken-thigh and chicken-burger samples. This will be achieved through the implementation of machine learning regression algorithms based on MSI and FTIR data. 
 
 **Approach** : The approach includes the employment of multiple machine learning algorithms to achieve the optimum prediction accuracies. In particular, five algorithms have been implemented: Linear Regression, K-Nearest Neighbor, Random Forest, Support Vector Machines with Polynomial Kernel and Radial Basis Function Kernel. Analyses and modelling were conducted via R language and environment for statistical computing and graphics, including the API (Plumber) which acts as a “pipeline” facilitating data requests and returning a response as a predicted value of the bacterial count present in a given sample. 
 
@@ -105,5 +105,36 @@ The `docker run` command creates a container from a given image and starts the c
 $ docker run --name <container name of choice> -d freshapi
 ```
 NOTE: `-d` or `--detach` is a `docker run` option for running the container in background. `--name` is used to assign a name to the container. 
+In order to execute commands on running containers, `docker exec` is used specify the container name as well as the command to be executed on this container:
+```
+$ docker exec -it <container name of choice> bash
+```
+NOTE: The combination of `-i` and `-t` allows the container to run in an interative mode and provides access to the terminal to execute further commands in the application. The `bash` command creates a new Bash session for the container.
 
+## **Step 4 — Sending request to REST-API**
+The design and feauture of Fresh-API is to accept request inputs as `.json` data and query parameters defined by the developers. `curl` is a command line tool for transferring and receiving HTTP requests and responses. The syntax for the four endpoints are as follows:
+1. Bacterial count prediction of MSI data:
+```
+curl --data <MSI(.json)> "localhost:80/predict_MSI?bacteria=&model="
+```
+2. Bacterial count prediction of FTIR data:
+```
+curl --data <FTIR(.json)> "localhost:80/predict_FTIR?product=&bacteria=&model="
+```
+3. Bacterial count prediction using the most accurate Machine Learning method:
+```
+curl --data <MSI or FTIR(.json)> "localhost:80/predict?platform=&product="
+```
+4. Report of Machine Learning models for MSI and FTIR data:
+```
+curl "localhost:80/report?platform=&product="
+```
+The following table provides a list of endpoints and their corresponding query parameters:
+|Endpoints     |  Query parameters   | 
+|---------|-----------------|
+| #* @post /predict_MSI | bacteria='TVC' or 'Ps' ; model='rf', 'knn', 'svmLinear', 'svmRadial', 'svmPoly', 'lm' |
+| #* @post /predict_FTIR | product='CB' or 'CTF' ; bacteria='TVC', 'Ps', 'Bth', 'LAB' ; model='rf', 'knn', 'svmLinear', 'svmRadial', 'svmPoly', 'lm' |
+| #* @post /predict | platform='MSI' or 'FTIR' ; product='CB' or 'CTF' |
+| #* @get /report | platform='MSI' or 'FTIR' ; product='CB' or 'CTF' |
 
+NOTE: `--data` or `-d` denotes the `curl` command used for passing data to the request body. `platform`, `product`, `bacteria` and `model` parameters were passed to the endpoint using “query strings”. The (`?`) appended to the URL indicates the start of the query string. In the query string, each parameter is concatenated with other parameters through the ampersand (`&`) symbol.
