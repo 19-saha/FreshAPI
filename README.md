@@ -105,6 +105,7 @@ The `docker run` command creates a container from a given image and starts the c
 $ docker run --name <container name of choice> -d freshapi
 ```
 NOTE: `-d` or `--detach` is a `docker run` option for running the container in background. `--name` is used to assign a name to the container. 
+
 In order to execute commands on running containers, `docker exec` is used specify the container name as well as the command to be executed on this container:
 ```
 $ docker exec -it <container name of choice> bash
