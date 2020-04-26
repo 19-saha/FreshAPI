@@ -132,8 +132,8 @@ curl "localhost:80/report?platform=&product="
 The following table provides a list of endpoints and their corresponding query parameters:
 |      Endpoints        |  Query parameters   | 
 |      ---------        |  -----------------  |
-|`#* @post /predict_MSI`|`bacteria= TVC or Ps` ; `model= rf, knn, svmLinear, svmRadial, svmPoly, lm`|
-|`#* @post /predict_FTIR`|`product= CB, CTF` ; `bacteria= TVC, Ps, Bth, LAB` ; `model= rf, knn, svmLinear, svmRadial, svmPoly, lm`|
+|`#* @post /predict_MSI`                               |`bacteria= TVC or Ps` ; `model= rf, knn, svmLinear, svmRadial, svmPoly, lm`|
+|`#* @post /predict_FTIR`     |`product= CB, CTF` ; `bacteria= TVC, Ps, Bth, LAB` ; `model= rf, knn, svmLinear, svmRadial, svmPoly, lm`|
 |`#* @post /predict`|`platform= MSI, FTIR` ; `product= CB, CTF`|
 |`#* @get /report`|`platform= MSI, FTIR` ; `product= CB, CTF`|
 
