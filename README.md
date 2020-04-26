@@ -132,9 +132,9 @@ curl "localhost:80/report?platform=&product="
 The following table provides a list of endpoints and their corresponding query parameters:
 |Endpoints     |  Query parameters   | 
 |---------|-----------------|
-|`#* @post /predict_MSI`|`bacteria= 'TVC' or 'Ps'` ; `model= 'rf', 'knn', 'svmLinear', 'svmRadial', 'svmPoly', 'lm'`|
-|`#* @post /predict_FTIR`|`product= 'CB' or 'CTF'` ; `bacteria='TVC', 'Ps', 'Bth', 'LAB' ; model= 'rf', 'knn', 'svmLinear', 'svmRadial', 'svmPoly', 'lm'`|
+|`#* @post /predict_MSI`|`bacteria= 'TVC' or 'Ps'`;`model= 'rf', 'knn', 'svmLinear', 'svmRadial', 'svmPoly', 'lm'`|
+|`#* @post /predict_FTIR`|`product= 'CB' or 'CTF'`;`bacteria='TVC', 'Ps', 'Bth', 'LAB'`;`model= 'rf', 'knn', 'svmLinear', 'svmRadial', 'svmPoly', 'lm'`|
 |`#* @post /predict`|`platform= 'MSI' or 'FTIR'` ; `product= 'CB' or 'CTF'`|
-|`#* @get /report`|`platform= 'MSI' or 'FTIR' ; product='CB' or 'CTF'`|
+|`#* @get /report`|`platform= 'MSI' or 'FTIR'`;`product='CB' or 'CTF'`|
 
 NOTE: `--data` or `-d` denotes the `curl` command used for passing data to the request body. `platform`, `product`, `bacteria` and `model` parameters were passed to the endpoint using “query strings”. The (`?`) appended to the URL indicates the start of the query string. In the query string, each parameter is concatenated with other parameters through the ampersand (`&`) symbol.
