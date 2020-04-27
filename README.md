@@ -139,3 +139,4 @@ The following table provides a list of endpoints and their corresponding query p
 |`#* @get /report`|`platform= MSI, FTIR` ; `product= CB, CTF`|
 
 NOTE: `--data` or `-d` denotes the `curl` command used for passing data to the request body. `platform`, `product`, `bacteria` and `model` parameters were passed to the endpoint using “query strings”. The (`?`) appended to the URL indicates the start of the query string. In the query string, each parameter is concatenated with other parameters through the ampersand (`&`) symbol.
+## **JSON file format specification**
