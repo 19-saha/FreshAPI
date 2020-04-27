@@ -113,7 +113,7 @@ $ docker exec -it <container name of choice> bash
 NOTE: The combination of `-i` and `-t` allows the container to run in an interative mode and provides access to the terminal to execute further commands in the application. The `bash` command creates a new Bash session for the container.
 
 ## **Step 4 — Sending request to REST-API**
-The design and feauture of Fresh-API is to accept request inputs as `.json` data and query parameters defined by the developers. `curl` is a command line tool for transferring and receiving HTTP requests and responses. The syntax for the four endpoints are as follows:
+The design and features of Fresh-API is to accept request inputs as `.json` data and query parameters defined by the developers. `curl` is a command line tool for transferring and receiving HTTP requests and responses. The syntax for the four endpoints are as follows:
 1. Bacterial count prediction of MSI data:
 ```
 curl --data <MSI(.json)> "localhost:80/predict_MSI?bacteria=&model="
@@ -140,3 +140,4 @@ The following table provides a list of endpoints and their corresponding query p
 
 NOTE: `--data` or `-d` denotes the `curl` command used for passing data to the request body. `platform`, `product`, `bacteria` and `model` parameters were passed to the endpoint using “query strings”. The (`?`) appended to the URL indicates the start of the query string. In the query string, each parameter is concatenated with other parameters through the ampersand (`&`) symbol.
 ## **JSON file format specification**
+In the case of prediction of bacterial counts, data derived from an analytical platform such as MSI should contain the 18 mean values as features at the beginning of a JSON file. Similarly, for FTIR derived samples the file should contain wavelengths not more than 4000 nm. 
