@@ -160,8 +160,9 @@ RMSE.knn <- readRDS("models/CTF/MSI/RMSE.MSI_knn_TVC.rds")
 accuracy_knn_TVC <- readRDS("models/CTF/MSI/Accuracy.MSI_knn_TVC.rds")
 predicted.knn <- readRDS("models/CTF/MSI/Prediction.MSI_knn_TVC.rds")
 
-plot(predicted.knn,test.knn,xlim= c(0,9), ylim=c(0,9),xlab="Predicted bacterial counts",ylab="Actual bacterial counts",col = "blue", 
-main=paste("k-Nearest Neighbours \nRMSE:",round(RMSE.knn,digits = 2),"\nAccuracy :",round(accuracy_knn_TVC, digits = 2),"% - at ±1 LogCount"))
+plot(predicted.knn,test.knn,xlim= c(0,9), ylim=c(0,9),xlab="Predicted bacterial counts",ylab="Actual bacterial counts",
+col = "blue", main=paste("k-Nearest Neighbours \nRMSE:",round(RMSE.knn,digits = 2),"\nAccuracy :",round(accuracy_knn_TVC, 
+digits = 2),"% - at ±1 LogCount"))
 abline(a=0,b=1)
 abline(a=-1,b=1)
 abline(a=1,b=1)
