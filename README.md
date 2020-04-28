@@ -9,13 +9,13 @@
 * [Fresh-API](#Fresh-API)
 * [Installation](#Installation)
   * [Dependencies](#Dependencies)
-  * [Install Fresh-API from source](#Install Fresh-API from source)
-  * [Step 1 — Installing Docker](#Step 1 — Installing Docker)
-  * [Step 2 — Building the Docker Image](#Step 2 — Building the Docker Image)
-  * [Step 3 — Running the Docker container](#Step 3 — Running the Docker container)
-  * [Step 4 — Sending request to REST-API](#Step 4 — Sending request to REST-API)
-* [JSON file format specification](#JSON file format specification)
-* [Additional commands for Docker](#Additional commands for Docker)
+  * [Install Fresh-API from source](#Install-Fresh-API-from-source)
+  * [Step 1 — Installing Docker](#Step-1-—-Installing-Docker)
+  * [Step 2 — Building the Docker Image](#Step-2-—-Building-the-Docker-Image)
+  * [Step 3 — Running the Docker container](#Step-3-—-Running-the-Docker-container)
+  * [Step 4 — Sending request to REST-API](#Step-4-—-Sending-request-to-REST-API)
+* [JSON file format specification](#JSON-file-format-specification)
+* [Additional commands for Docker](#Additional-commands-for-Docker)
 
 
 
