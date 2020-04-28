@@ -144,27 +144,15 @@ NOTE: `--data` or `-d` denotes the `curl` command used for passing data to the r
 * For FTIR derived samples the file should contain wavelengths in the range of 1001-4000 nm. 
 
 ```
-# k-Nearest Neighbours for Total Viable Counts
+#* @serializer contentType list(type="application/pdf")
+#* @get /report
 
-```{r message=FALSE, warning=FALSE}
-
-model.knn_TVC <- readRDS("model.rds")
-print(model.knn_TVC)
-
-
-# Total Viable Counts distribution - k-Nearest Neighbours
-
-  {r echo=FALSE}
-test.knn<-readRDS("testData.rds")
-RMSE.knn <- readRDS("RMSE.rds")
-accuracy_knn_TVC <- readRDS("accuracy.rds")
-predicted.knn <- readRDS("prediction.rds")
-
-plot(predicted.knn,test.knn,xlim= c(0,9), ylim=c(0,9),xlab="Predicted bacterial counts",ylab="Actual bacterial counts",
-col = "blue", main=paste("k-Nearest Neighbours \nRMSE:",round(RMSE.knn,digits = 2),"\nAccuracy :",round(accuracy_knn_TVC, 
-digits = 2),"% - at ±1 LogCount"))
-abline(a=0,b=1)
-abline(a=-1,b=1)
-abline(a=1,b=1)
+function(platform, product) {
+...
+...
+rmarkdown::render("new_report.Rmd", output_format = "pdf_document")
+...
+...
+}
 ```
 
