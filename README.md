@@ -10,10 +10,10 @@
 * [Installation](#Installation)
   * [Dependencies](#Dependencies)
   * [Install Fresh-API from source](#Install-Fresh-API-from-source)
-  * [Step 1 — Installing Docker](#Step-1—Installing-Docker)
-  * [Step 2 — Building the Docker Image](#Step-2—Building-the-Docker-Image)
-  * [Step 3 — Running the Docker container](#Step-3—Running-the-Docker-container)
-  * [Step 4 — Sending request to REST-API](#Step-4—Sending-request-to-REST-API)
+  * [Step 1 — Installing Docker](#Step-1-Installing-Docker)
+  * [Step 2 — Building the Docker Image](#Step-2-Building-the-Docker-Image)
+  * [Step 3 — Running the Docker container](#Step-3-Running-the-Docker-container)
+  * [Step 4 — Sending request to REST-API](#Step-4-Sending-request-to-REST-API)
 * [JSON file format specification](#JSON-file-format-specification)
 * [Additional commands for Docker](#Additional-commands-for-Docker)
 
@@ -36,7 +36,7 @@ The purpose of the application is to provide a platform to predict the total bac
 ```
 ```
 
-## **Step 1 — Installing Docker**
+## **Step 1 - Installing Docker**
 
 To download the latest version, install Docker from the official Docker repository. This section guides you how to do that.
 
@@ -91,7 +91,7 @@ The command will provide the following output:
    CGroup: /system.slice/docker.service
            └─11575 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 ```           
-## **Step 2 — Building the Docker Image**
+## **Step 2 - Building the Docker Image**
 `docker` consists of chain of options and commands followed by arguments. The syntax takes this form:
 ```
 $ docker [option] [command] [arguments]
@@ -106,7 +106,7 @@ $ docker build -t freshapi .
 ```
 NOTE: `-t` or `--tag` is a `docker build` option used for label a docker image in the `name:tag` format. In this case, name will be `freshapi`. The `.` operator specifies the current directory containing the 'Dockerfile'. Optionally, the version of an image can be tagged in which the user would like to run the container. For example, `docker build -t freshapi:2.0 .` 
 
-## **Step 3 — Running the Docker container**
+## **Step 3 - Running the Docker container**
 The `docker run` command creates a container from a given image and starts the container using a given command or entrypoint. To run the resulting docker image, the command is as follows:
 ```
 $ docker run --name [container name of choice] -d freshapi
@@ -119,7 +119,7 @@ $ docker exec -it [container name of choice] bash
 ```
 NOTE: The combination of `-i` and `-t` allows the container to run in an interative mode and provides access to the terminal to execute further commands in the application. The `bash` command creates a new Bash session for the container.
 
-## **Step 4 — Sending request to REST-API**
+## **Step 4 - Sending request to REST-API**
 The design and features of Fresh-API is to accept request inputs as `.json` data and query parameters defined by the developers. `curl` is a command line tool for transferring and receiving HTTP requests and responses. The syntax for the four endpoints are as follows:
 1. Bacterial count prediction of MSI data:
 ```
