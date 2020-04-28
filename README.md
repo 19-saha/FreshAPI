@@ -143,36 +143,15 @@ NOTE: `--data` or `-d` denotes the `curl` command used for passing data to the r
 * In the case of predicting bacterial counts, data derived from an analytical platform such as MSI should contain the 18 mean values as features at the beginning of a JSON file.
 * For FTIR derived samples the file should contain wavelengths in the range of 1001-4000 nm. 
 # Additional commands for Docker
-* Display logs of a container.
-```
-$ docker logs [container name]
-```
-* List all existing containers (running and not running).
-```
-$ docker ps -a
-```
-* List your images.
-```
-$ docker image ls
-```
-* Stop a specific container.
-```
-$ docker stop [container name]
-```
-* Stop all running containers.
-```
-$ docker stop $(docker ps -a -q)
-```
-* Delete a specific container (only if stopped).
-```
-$ docker rm [container name]
-```
-* Delete all containers (only if stopped).
-```
-$ docker rm $(docker ps -a -q)
-```
-* Delete all unused containers, unused images and networks.
-```
-docker system prune -a --volumes
-```
+| USAGE | Commands |
+|-------|----------|
+|Display logs of a container|`$ docker logs [container name]`|
+|List all existing containers (running and not running)|`$ docker ps -a`|
+|List your images|`$ docker image ls`|
+|Stop a specific container|`$ docker stop [container name]`|
+|Stop all running containers|`$ docker stop $(docker ps -a -q)`|
+|Delete a specific container (only if stopped)|`$ docker rm [container name]`|
+|Delete all containers (only if stopped)|`$ docker rm $(docker ps -a -q)`|
+|Delete all unused containers, unused images and networks|`docker system prune -a --volumes`|
+
 
