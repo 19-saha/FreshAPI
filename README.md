@@ -148,17 +148,17 @@ NOTE: `--data` or `-d` denotes the `curl` command used for passing data to the r
 
 ```{r message=FALSE, warning=FALSE}
 
-model.knn_TVC <- readRDS("models/CTF/MSI/Model.MSI_KNN_TVC.rds")
+model.knn_TVC <- readRDS("model.rds")
 print(model.knn_TVC)
 
 
 # Total Viable Counts distribution - k-Nearest Neighbours
 
   {r echo=FALSE}
-test.knn<-readRDS("models/CTF/MSI/Test_MSI_TVC.rds")
-RMSE.knn <- readRDS("models/CTF/MSI/RMSE.MSI_knn_TVC.rds")
-accuracy_knn_TVC <- readRDS("models/CTF/MSI/Accuracy.MSI_knn_TVC.rds")
-predicted.knn <- readRDS("models/CTF/MSI/Prediction.MSI_knn_TVC.rds")
+test.knn<-readRDS("testData.rds")
+RMSE.knn <- readRDS("RMSE.rds")
+accuracy_knn_TVC <- readRDS("accuracy.rds")
+predicted.knn <- readRDS("prediction.rds")
 
 plot(predicted.knn,test.knn,xlim= c(0,9), ylim=c(0,9),xlab="Predicted bacterial counts",ylab="Actual bacterial counts",
 col = "blue", main=paste("k-Nearest Neighbours \nRMSE:",round(RMSE.knn,digits = 2),"\nAccuracy :",round(accuracy_knn_TVC, 
