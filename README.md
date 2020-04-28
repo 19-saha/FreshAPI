@@ -102,13 +102,13 @@ NOTE: `-t` or `--tag` is a `docker build` option used for label a docker image i
 ## **Step 3 — Running the Docker container**
 The `docker run` command creates a container from a given image and starts the container using a given command or entrypoint. To run the resulting docker image, the command is as follows:
 ```
-$ docker run --name <container name of choice> -d freshapi
+$ docker run --name [container name of choice] -d freshapi
 ```
 NOTE: `-d` or `--detach` is a `docker run` option for running the container in background. `--name` is used to assign a name to the container. 
 
 In order to execute commands on running containers, `docker exec` is used to specify the container name as well as the command to be executed on this container:
 ```
-$ docker exec -it <container name of choice> bash
+$ docker exec -it [container name of choice] bash
 ```
 NOTE: The combination of `-i` and `-t` allows the container to run in an interative mode and provides access to the terminal to execute further commands in the application. The `bash` command creates a new Bash session for the container.
 
@@ -116,15 +116,15 @@ NOTE: The combination of `-i` and `-t` allows the container to run in an interat
 The design and features of Fresh-API is to accept request inputs as `.json` data and query parameters defined by the developers. `curl` is a command line tool for transferring and receiving HTTP requests and responses. The syntax for the four endpoints are as follows:
 1. Bacterial count prediction of MSI data:
 ```
-curl --data <MSI(.json)> "localhost:80/predict_MSI?bacteria=&model="
+curl --data [MSI(.json)] "localhost:80/predict_MSI?bacteria=&model="
 ```
 2. Bacterial count prediction of FTIR data:
 ```
-curl --data <FTIR(.json)> "localhost:80/predict_FTIR?product=&bacteria=&model="
+curl --data [FTIR(.json)] "localhost:80/predict_FTIR?product=&bacteria=&model="
 ```
 3. Bacterial count prediction using the most accurate Machine Learning method:
 ```
-curl --data <MSI or FTIR(.json)> "localhost:80/predict?platform=&product="
+curl --data [MSI or FTIR(.json)] "localhost:80/predict?platform=&product="
 ```
 4. Report of Machine Learning models for MSI and FTIR data:
 ```
@@ -139,20 +139,40 @@ The following table provides a list of endpoints and their corresponding query p
 |`#* @get /report`|`platform= MSI, FTIR` ; `product= CB, CTF`|
 
 NOTE: `--data` or `-d` denotes the `curl` command used for passing data to the request body. `platform`, `product`, `bacteria` and `model` parameters were passed to the endpoint using “query strings”. The (`?`) appended to the URL indicates the start of the query string. In the query string, each parameter is concatenated with other parameters through the ampersand (`&`) symbol.
-## **JSON file format specification**
+# JSON file format specification
 * In the case of predicting bacterial counts, data derived from an analytical platform such as MSI should contain the 18 mean values as features at the beginning of a JSON file.
 * For FTIR derived samples the file should contain wavelengths in the range of 1001-4000 nm. 
-
+# Additional commands for Docker
+* Display logs of a container.
 ```
-#* @serializer contentType list(type="application/pdf")
-#* @get /report
-
-function(platform, product) {
-...
-...
-rmarkdown::render("new_report.Rmd", output_format = "pdf_document")
-...
-...
-}
+$ docker logs [container name]
+```
+* List all existing containers (running and not running).
+```
+$ docker ps -a
+```
+* List your images.
+```
+$ docker image ls
+```
+* Stop a specific container.
+```
+$ docker stop [container name]
+```
+* Stop all running containers.
+```
+$ docker stop $(docker ps -a -q)
+```
+* Delete a specific container (only if stopped).
+```
+$ docker rm [container name]
+```
+* Delete all containers (only if stopped).
+```
+$ docker rm $(docker ps -a -q)
+```
+* Delete all unused containers, unused images and networks.
+```
+docker system prune -a --volumes
 ```
 
