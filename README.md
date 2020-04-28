@@ -145,25 +145,14 @@ NOTE: `--data` or `-d` denotes the `curl` command used for passing data to the r
 
 ```
 #* @serializer contentType list(type="application/pdf") 
-
-#* @get /report 
-
-  
-
+#* @get /report
 function(platform, product) { 
-
 … 
-
 … 
-
 rmarkdown::render("MSI_Report.Rmd", output_format = "pdf_document") 
-
 … 
-
 rmarkdown::render("FTIR_CTF_Report.Rmd", output_format = "pdf_document") 
-
 … 
-
 … 
 
 } 
