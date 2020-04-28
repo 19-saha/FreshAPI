@@ -142,3 +142,19 @@ NOTE: `--data` or `-d` denotes the `curl` command used for passing data to the r
 ## **JSON file format specification**
 * In the case of predicting bacterial counts, data derived from an analytical platform such as MSI should contain the 18 mean values as features at the beginning of a JSON file.
 * For FTIR derived samples the file should contain wavelengths in the range of 1001-4000 nm. 
+
+```
+#* parse JSON 
+
+#* @post /predict_MSI 
+
+function(req, bacteria, model){ 
+
+data <- jsonlite::fromJSON(req$postBody) 
+
+… 
+
+… 
+
+}
+```
