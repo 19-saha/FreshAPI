@@ -152,6 +152,6 @@ NOTE: `--data` or `-d` denotes the `curl` command used for passing data to the r
 |Stop all running containers|`$ docker stop $(docker ps -a -q)`|
 |Delete a specific container (only if stopped)|`$ docker rm [container name]`|
 |Delete all containers (only if stopped)|`$ docker rm $(docker ps -a -q)`|
-|Delete all unused containers, unused images and networks|`docker system prune -a --volumes`|
+|Delete all unused containers, unused images and networks|`$ docker system prune -a --volumes`|
 
 
