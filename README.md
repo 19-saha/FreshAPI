@@ -144,17 +144,27 @@ NOTE: `--data` or `-d` denotes the `curl` command used for passing data to the r
 * For FTIR derived samples the file should contain wavelengths in the range of 1001-4000 nm. 
 
 ```
-#* parse JSON 
+#* @serializer contentType list(type="application/pdf") 
 
-#* @post /predict_MSI 
+#* @get /report 
 
-function(req, bacteria, model){ 
+  
 
-data <- jsonlite::fromJSON(req$postBody) 
+function(platform, product) { 
+
+… 
+
+… 
+
+rmarkdown::render("MSI_Report.Rmd", output_format = "pdf_document") 
+
+… 
+
+rmarkdown::render("FTIR_CTF_Report.Rmd", output_format = "pdf_document") 
 
 … 
 
 … 
 
-}
+} 
 ```
