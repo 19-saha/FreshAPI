@@ -160,5 +160,18 @@ NOTE: `--data` or `-d` denotes the `curl` command used for passing data to the r
 |Delete a specific container (only if stopped)|`$ docker rm [container name]`|
 |Delete all containers (only if stopped)|`$ docker rm $(docker ps -a -q)`|
 |Delete all unused containers, unused images and networks|`$ docker system prune -a --volumes`|
-
+# Troubleshooting
+There are four possible types of errors the user could receive as response from Fresh-API:
+```
+Error occured: Please choose the correct model: rf | knn | svmLinear | svmRadial | svmPoly | lm
+```
+```
+Error occured: Please choose the correct bacteria: TVC | Ps
+```
+```
+Error occured: Please choose the correct product: CB | CTF
+```
+```
+Error occured: Please choose the correct platform: MSI or FTIR
+```
 
